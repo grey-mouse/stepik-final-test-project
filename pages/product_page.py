@@ -12,8 +12,8 @@ class ProductPage(BasePage):
 	def should_be_message_that_product_added_to_basket(self):
 		assert self.is_element_present(*ProductPageLocators.MESSAGE_PRODUCT_ADDED_TO_BASKET), "Message that product is successfully added is not presented"
 		product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME_HEADER).text
-		message_text = self.browser.find_element(*ProductPageLocators.MESSAGE_PRODUCT_ADDED_TO_BASKET).text
-		assert product_name in message_text, "Product name in the basket should be equal to product name"
+		message_product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME_ADDED_TO_BASKET).text
+		assert product_name == message_product_name, "Product name in the basket should be equal to product name"
 	
 	def should_be_basket_price_equal_to_product_price(self):
 		product_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
