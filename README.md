@@ -1,5 +1,5 @@
 # stepik-final-test-project
-Task for Selenium course on Stepik
+Tests for site https://selenium1py.pythonanywhere.com/en-gb/
 
 To run tests use optional parameters "browser_name" ('chrome' by default) and "language" ('en' by default).
 
