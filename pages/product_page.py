@@ -19,6 +19,14 @@ class ProductPage(BasePage):
 		product_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
 		basket_price = self.browser.find_element(*ProductPageLocators.BASKET_PRICE).text
 		assert product_price == basket_price, "Price in the basket should be the same as the product has"
+		
+	def should_not_be_success_message(self):
+		assert self.is_not_element_present(*ProductPageLocators.MESSAGE_PRODUCT_ADDED_TO_BASKET), \
+			"Success message is presented, but should not be"
+			
+	def should_success_message_disappear(self):
+		assert self.is_disappeared(*ProductPageLocators.MESSAGE_PRODUCT_ADDED_TO_BASKET), \
+			"Success message is not disappeared, but should be"
 	
 	def solve_quiz_and_get_code(self):
 		alert = self.browser.switch_to.alert
